@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="UserController.php?type=update&id=<?php echo $id ?>" method="post">
+    <label for="">名字<input type="text" name="name" value="<?php echo $user['name'] ?>"></label>
+    <br />
+    <label for="">昵称<input type="text" name="nickname" value="<?php echo $user['nickname'] ?>"></label>
+    <br />
+    <label for="">邮箱<input type="text" name="email" value="<?php echo $user['email'] ?>"></label>
+    <br />
+    <label for="">手机号<input type="text" name="mobile_number" value="<?php echo $user['mobile_number'] ?>"></label>
+    <br />
+    <input type="submit" value="修改" />
+</form>
+</body>
+</html>

@@ -35,7 +35,8 @@ class MySQLDB{
 		mysql_query("set names {$this->charset}", $this->link);	//mysql_set_charset("utf8");
 		mysql_query("use {$this->dbname}", $this->link);		//myql_select_db("XX数据库");
 	}
-	static function GetDB($conf){
+
+	public static function GetDB($conf){
 		static $db  = null;	//用于存储本类的唯一对象
 		if(is_null($db)){
 			$db = new self($conf);
@@ -44,13 +45,13 @@ class MySQLDB{
 	}
 
 	//2，这个对象还可以选择（更换）新的数据库。
-	function select_db($db){
+	public function select_db($db){
 		mysql_query("use $db", $this->link);	
 		$this->dbname = $db;
 	}
 
 	//3，这个对象还可以执行“增删改”等无返回数据的操作，并返回执行的结果——true或false
-	function exec($sql){
+	public function exec($sql){
 		// $result = mysql_query($sql, $this->link);
 		// if($result === false){
 		// 	echo "<p>数据库执行失败，请参考如下信息：";
@@ -60,7 +61,7 @@ class MySQLDB{
 		// 	die();
 		// }
 		$result = $this->query( $sql );//此行代替以上n行
-		return $result;
+		return mysql_affected_rows($this->link);
 	}
 
 	//4，这个对象可以执行“返回一行数据”的查询操作，并返回一个一维数组！

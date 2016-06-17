@@ -13,6 +13,9 @@
     </style>
 </head>
 <body>
+<div>
+    <a href="UserController.php?type=add">添加</a>
+</div>
 <table>
     <tr>
         <th>编号</th>
@@ -31,7 +34,10 @@
         <td><?php echo $user['email'] ?></td>
         <td><?php echo $user['mobile_number'] ?></td>
         <td><?php echo date('Y-m-d H:i:s', $user['register_time']) ?></td>
-        <td><a href="2.UserController.php?type=delete&id=<?php echo $user['id'] ?>">删除</a></td>
+        <td>
+            <a href="UserController.php?type=delete&id=<?php echo $user['id'] ?>">删除</a>
+            <a href="UserController.php?type=update&id=<?php echo $user['id'] ?>">修改</a>
+        </td>
     </tr>
     <?php } ?>
 </table>
