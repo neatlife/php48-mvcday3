@@ -9,6 +9,7 @@ class BaseModel
 
     public function __construct()
     {
+        // 5千行
         // 模型层99%时间在操作数据库
         $this->db = MySQLDB::GetDB(array(
             'host' => 'localhost',

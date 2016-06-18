@@ -1,6 +1,4 @@
 <?php
-require_once './MySQLDB.class.php';
-require_once 'BaseModel.php';
 
 class ProductModel extends BaseModel
 {

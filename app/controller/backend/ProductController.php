@@ -1,6 +1,4 @@
 <?php
-require_once './10product-model.php';
-require_once 'BaseController.php';
 
 class ProductController extends BaseController
 {
@@ -9,14 +7,11 @@ class ProductController extends BaseController
         $model  =  new  ProductModel();
         $Product  =  $model->GetAllProduct();
         $Count = $model->GetCount();
-
-        include './10product-view.html';
+        
+        include VIEW_PATH . '/backend/ProductList.html';
     }
 
     function update()
     {
     }
 }
-
-$obj = new ProductController();
-$obj->index();
